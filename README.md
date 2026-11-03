@@ -1,52 +1,64 @@
-# Rinnai 乾太くん Home Assistant Integration
+# Rinnai Gas Dryer — Home Assistant Integration
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
+[![GitHub release](https://img.shields.io/github/release/miyagase/homeassistant-rinnai.svg)](https://github.com/miyagase/homeassistant-rinnai/releases)
 
-Rinnai の乾太くん（ガス衣類乾燥機）を Home Assistant で監視するカスタムインテグレーションです。
+Home Assistant integration for the **Rinnai 乾太くん (Kantakun)** gas clothes dryer.
 
-## 機能
+> 日本語のドキュメントは [README_ja.md](README_ja.md) をご覧ください。
 
-- 稼働状態のリアルタイム監視（60秒ポーリング）
-- 乾燥コース・残り時間の取得
-- トークン自動更新（期限切れ前後に自動でリフレッシュ）
+## Features
 
-## エンティティ
+- Real-time monitoring (60-second polling)
+- Drying course and remaining time
+- Automatic token refresh (no manual renewal required)
 
-| エンティティ | 種別 | 説明 |
+## Entities
+
+| Entity | Type | Description |
 |---|---|---|
-| `binary_sensor.kantakun_running` | Binary Sensor | 運転中かどうか |
-| `sensor.kantakun_status` | Sensor | ステータス（停止中/運転中/待機中/エラー） |
-| `sensor.kantakun_course` | Sensor | 乾燥コース |
-| `sensor.kantakun_time_remaining` | Sensor | 残り時間（分） |
+| `binary_sensor.kantakun_running` | Binary Sensor | Whether the dryer is running |
+| `sensor.kantakun_status` | Sensor | Status (stopped / running / standby / error) |
+| `sensor.kantakun_course` | Sensor | Drying course |
+| `sensor.kantakun_time_remaining` | Sensor | Remaining time (minutes) |
 
-## インストール
+## Requirements
 
-### HACS（推奨）
+- Home Assistant 2023.1.0 or later
+- Rinnai Kantakun gas dryer with cloud connectivity
+- Local network access to the device
 
-1. HACS → カスタムリポジトリ → `https://github.com/iot-develop-ja/homeassistant-rinnai` を追加
-2. 「Rinnai 乾太くん」をインストール
-3. HA を再起動
+## Installation
 
-### 手動
+### HACS (Recommended)
 
-`custom_components/rinnai/` を HA の `custom_components/` にコピーして再起動。
+1. Open HACS → Integrations → ⋮ → Custom repositories
+2. Add `https://github.com/miyagase/homeassistant-rinnai` (category: Integration)
+3. Install **Rinnai 乾太くん**
+4. Restart Home Assistant
 
-## セットアップ
+### Manual
 
-設定 → デバイスとサービス → 統合を追加 → 「Rinnai」を検索
+Copy `custom_components/rinnai/` into your HA `custom_components/` directory and restart.
 
-以下の情報が必要です：
+## Setup
 
-| 項目 | 取得方法 |
-|---|---|
-| コントローラーID | Rinnai アプリの通信をキャプチャして取得 |
-| アクセストークン | 同上（`Authorization: Bearer` ヘッダー） |
-| リフレッシュトークン | `POST /api/v2/users/refresh_token` レスポンスから取得 |
+Settings → Devices & Services → Add Integration → search for **Rinnai**
 
-トークンの取得方法は [kantakun ディレクトリの README](https://github.com/iot-develop-ja/homeassistant-rinnai/blob/main/tools/README.md) を参照してください。
+### Pairing steps
 
-## トークンについて
+1. Press **L3 → OK** on the dryer.
+2. Press **Submit** in the HA setup dialog.
+3. When the dryer display shows "Press OK", press **OK** on the dryer.
 
-- アクセストークンの有効期限: 約24時間
-- このインテグレーションは期限切れ2時間前（または期限切れ後）に自動でリフレッシュします
-- リフレッシュトークンが失効した場合は再セットアップが必要です
+Setup completes automatically. No smartphone app or packet capture required.
+
+## Token Management
+
+- Access token validity: ~24 hours
+- This integration automatically refreshes the token up to 2 hours before expiry.
+- If the refresh token expires, re-run the setup flow.
+
+## Compatibility
+
+Developed and tested with the Rinnai 乾太くん (Japan). May work with Rinnai gas dryers in other regions if they share the same cloud API.

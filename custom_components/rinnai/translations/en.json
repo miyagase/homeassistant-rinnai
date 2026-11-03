@@ -2,17 +2,19 @@
   "config": {
     "step": {
       "user": {
-        "title": "Rinnai Kantakun Setup",
-        "description": "Enter the credentials obtained from the Rinnai app.",
-        "data": {
-          "controller_id": "Controller ID",
-          "access_token": "Access Token",
-          "refresh_token": "Refresh Token"
-        }
+        "title": "Kantakun Pairing",
+        "description": "1. Press **L3 → OK** on the Kantakun device.\n2. Press **Submit** below.\n3. When the device displays \"Press OK\", press **OK** on the device.\n\nSetup will complete automatically.",
+        "data": {}
       }
     },
+    "error": {
+      "pairing_timeout": "Device not found. Press L3 → OK on the device and try again, or enter the IP address directly.",
+      "auth_failed": "Failed to get authentication info from the device. Ensure pairing mode is active.",
+      "cannot_connect": "Failed to connect to the Rinnai server. Check your network connection.",
+      "unknown": "An unexpected error occurred. Please try again."
+    },
     "abort": {
-      "already_configured": "This controller is already configured."
+      "already_configured": "This device is already configured."
     }
   }
 }
