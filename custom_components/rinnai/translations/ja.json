@@ -1,0 +1,18 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Rinnai 乾太くん セットアップ",
+        "description": "Rinnai アプリから取得した認証情報を入力してください。",
+        "data": {
+          "controller_id": "コントローラーID",
+          "access_token": "アクセストークン",
+          "refresh_token": "リフレッシュトークン"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "このコントローラーはすでに設定済みです。"
+    }
+  }
+}

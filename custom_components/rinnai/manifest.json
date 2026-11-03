@@ -1,0 +1,11 @@
+{
+  "domain": "rinnai",
+  "name": "Rinnai 乾太くん",
+  "version": "0.1.0",
+  "config_flow": true,
+  "documentation": "https://github.com/iot-develop-ja/homeassistant-rinnai",
+  "issue_tracker": "https://github.com/iot-develop-ja/homeassistant-rinnai/issues",
+  "requirements": ["aiohttp>=3.8.0"],
+  "codeowners": ["@iot-develop-ja"],
+  "iot_class": "cloud_polling"
+}

@@ -1,0 +1,18 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Rinnai Kantakun Setup",
+        "description": "Enter the credentials obtained from the Rinnai app.",
+        "data": {
+          "controller_id": "Controller ID",
+          "access_token": "Access Token",
+          "refresh_token": "Refresh Token"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "This controller is already configured."
+    }
+  }
+}
