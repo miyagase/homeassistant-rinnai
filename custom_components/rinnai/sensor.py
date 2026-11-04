@@ -11,7 +11,8 @@ from .coordinator import RinnaiCoordinator
 
 STATUS_MAP = {
     "OFF": "停止中",
-    "RUN": "運転中",
+    "WORKING": "運転中",
+    "COOLING": "冷却中",
     "STANDBY": "待機中",
     "ERROR": "エラー",
 }
@@ -88,8 +89,11 @@ class RinnaiTimeRemainingSensor(RinnaiBaseSensor):
     def native_value(self):
         if self.coordinator.data:
             val = self.coordinator.data.get("timeRemaining")
+            if val is None:
+                return None
             try:
-                return int(val)
+                # API returns values like "25分" or plain integers
+                return int(str(val).replace("分", "").replace("min", "").strip())
             except (TypeError, ValueError):
                 return None
         return None

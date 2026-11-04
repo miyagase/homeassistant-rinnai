@@ -1,6 +1,6 @@
 # Rinnai 乾太くん Home Assistant インテグレーション
 
-[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/hacs/integration)
 [![GitHub release](https://img.shields.io/github/release/miyagase/homeassistant-rinnai.svg)](https://github.com/miyagase/homeassistant-rinnai/releases)
 
 Rinnai の乾太くん（ガス衣類乾燥機）を Home Assistant で監視するカスタムインテグレーションです。
@@ -29,6 +29,13 @@ Rinnai の乾太くん（ガス衣類乾燥機）を Home Assistant で監視す
 ## インストール
 
 ### HACS（推奨）
+
+1. HACS → インテグレーション
+2. 「**Rinnai**」で検索し「**Rinnai 乾太くん**」を選択
+3. 「**ダウンロード**」をクリック
+4. HA を再起動
+
+#### カスタムリポジトリ（検索で見つからない場合）
 
 1. HACS → インテグレーション → ⋮ → カスタムリポジトリ
 2. `https://github.com/miyagase/homeassistant-rinnai` を追加（カテゴリ: インテグレーション）

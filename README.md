@@ -1,6 +1,6 @@
 # Rinnai Gas Dryer — Home Assistant Integration
 
-[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/hacs/integration)
 [![GitHub release](https://img.shields.io/github/release/miyagase/homeassistant-rinnai.svg)](https://github.com/miyagase/homeassistant-rinnai/releases)
 
 Home Assistant integration for the **Rinnai 乾太くん (Kantakun)** gas clothes dryer.
@@ -31,6 +31,13 @@ Home Assistant integration for the **Rinnai 乾太くん (Kantakun)** gas clothe
 ## Installation
 
 ### HACS (Recommended)
+
+1. Open HACS → Integrations
+2. Search for **Rinnai** and select **Rinnai 乾太くん**
+3. Click **Download**
+4. Restart Home Assistant
+
+#### Custom repository (if not found in search)
 
 1. Open HACS → Integrations → ⋮ → Custom repositories
 2. Add `https://github.com/miyagase/homeassistant-rinnai` (category: Integration)

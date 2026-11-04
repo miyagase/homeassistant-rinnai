@@ -30,7 +30,7 @@ class RinnaiRunningBinarySensor(CoordinatorEntity, BinarySensorEntity):
 
     @property
     def is_on(self):
-        return self.coordinator.data.get("status") == "RUN" if self.coordinator.data else False
+        return self.coordinator.data.get("status") == "WORKING" if self.coordinator.data else False
 
     @property
     def device_info(self):

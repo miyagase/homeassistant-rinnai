@@ -104,13 +104,13 @@ async def _fetch_app_auth(device_ip: str, max_wait: int = 60) -> dict | None:
 
     while loop.time() - start <= max_wait:
         elapsed = int(loop.time() - start)
-        _LOGGER.warning("[Rinnai] POST https://%s/app_auth2/app_auth.html (elapsed=%ds)", device_ip, elapsed)
+        _LOGGER.debug("[Rinnai] POST https://%s/app_auth2/app_auth.html (elapsed=%ds)", device_ip, elapsed)
         try:
             result = await loop.run_in_executor(None, _raw_post_app_auth, device_ip)
             if result:
                 return result
         except Exception as err:
-            _LOGGER.warning("[Rinnai] app_auth attempt failed: %s", type(err).__name__)
+            _LOGGER.debug("[Rinnai] app_auth attempt failed: %s", type(err).__name__)
 
         await asyncio.sleep(1)
 
@@ -141,7 +141,7 @@ async def _register_controller(auth_code: str, mqtt_code: str, access_token: str
                 _LOGGER.error("[Rinnai] register_controller failed: %s %s", resp.status, await resp.text())
                 return None
             data = await resp.json()
-            _LOGGER.info("[Rinnai] controllerId: %s", data.get("controllerId"))
+            _LOGGER.debug("[Rinnai] controller registration successful")
             return data
 
 
