@@ -78,7 +78,6 @@ def _raw_post_app_auth(device_ip: str) -> dict | None:
                 chunks.append(chunk)
 
     raw = b"".join(chunks).decode("utf-8", errors="replace")
-    _LOGGER.warning("[Rinnai] app_auth raw response: %r", raw[:512])
 
     auth_code = None
     mqtt_code = None
@@ -92,8 +91,8 @@ def _raw_post_app_auth(device_ip: str) -> dict | None:
             val = line.split(":", 1)[-1].strip()
             mqtt_code = val
 
-    _LOGGER.warning("[Rinnai] auth_code=%s mqtt_code=%s", auth_code, mqtt_code)
     if auth_code and mqtt_code:
+        _LOGGER.debug("[Rinnai] app_auth credentials received")
         return {"auth_code": auth_code, "mqtt_code": mqtt_code}
     return None
 
@@ -121,7 +120,7 @@ async def _fetch_app_auth(device_ip: str, max_wait: int = 60) -> dict | None:
 
 async def _create_guest_user(auth_code: str) -> dict | None:
     url = f"{API_BASE}/api/v2/users/create_guest_user"
-    _LOGGER.info("[Rinnai] POST %s code=%s...", url, auth_code[:8])
+    _LOGGER.info("[Rinnai] POST %s", url)
     async with aiohttp.ClientSession() as session:
         async with session.post(url, json={"code": auth_code}, headers=API_HEADERS, timeout=aiohttp.ClientTimeout(total=15)) as resp:
             _LOGGER.info("[Rinnai] create_guest_user status: %s", resp.status)

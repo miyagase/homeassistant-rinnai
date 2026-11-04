@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "乾太くん ペアリング",
-        "description": "1. 乾太くん本体で **L3 → OK** を操作してください。\n2. 「送信」ボタンを押してください。\n3. 本体に「OKボタンを押してください」と表示されたら、本体の **OK** を押してください。\n\n自動でセットアップが完了します。",
+        "description": "1. 乾太くん本体で **L3 → OK** を操作してください。 *(Press L3 → OK on the device)*\n2. 「送信」ボタンを押してください。 *(Press Submit below)*\n3. 本体に「OKボタンを押してください」と表示されたら、本体の **OK** を押してください。 *(When the device displays \"Press OK\", press OK on the device)*\n\n自動でセットアップが完了します。",
         "data": {}
       }
     },

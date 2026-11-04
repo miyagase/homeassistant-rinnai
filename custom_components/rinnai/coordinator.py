@@ -66,7 +66,7 @@ class RinnaiCoordinator(DataUpdateCoordinator):
         new_refresh = data.get("refreshToken") or data.get("refresh_token")
 
         if not new_token:
-            _LOGGER.error("No accessToken in refresh response: %s", data)
+            _LOGGER.error("No accessToken in token refresh response")
             return False
 
         self._access_token = new_token
