@@ -48,7 +48,9 @@ Rinnai の乾太くん（ガス衣類乾燥機）を Home Assistant で監視す
 
 ## セットアップ
 
-設定 → デバイスとサービス → 統合を追加 → 「Rinnai」を検索
+[![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=rinnai)
+
+または設定 → デバイスとサービス → 統合を追加 → 「Rinnai」を検索
 
 ### ペアリング手順
 
